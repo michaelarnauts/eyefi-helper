@@ -1,0 +1,13 @@
+{
+    "name": "michaelarnauts/eyefilogparser",
+    "authors": [
+        {
+            "name": "Michaël Arnauts",
+            "email": "michael.arnauts@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"MichaelArnauts\\": "MichaelArnauts/"}
+    },
+    "require": {}
+}
