@@ -1,0 +1,16 @@
+<?php
+return [
+
+  /**
+   * destination contains the full path to the location where the files should be moved after processing.
+   * You can use strftime placeholders to move the file to a specific location based on the date.
+   * The full path will be automatically created when a file is moved.
+   */
+  'destination' => '/path/to/images/%Y/%Y-%m-%d/',
+
+  /**
+   * geocode the image based on the information from the .log files that your EyeFi card provides
+   */
+  'geocode' => true,
+
+];

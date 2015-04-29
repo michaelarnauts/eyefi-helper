@@ -1,5 +1,7 @@
 {
-    "name": "michaelarnauts/eyefilogparser",
+    "name": "michaelarnauts/eyefi-helper",
+    "type": "project",
+    "homepage": "https://github.com/michaelarnauts/eyefi-helper",
     "authors": [
         {
             "name": "Michaël Arnauts",
@@ -9,5 +11,7 @@
     "autoload": {
         "psr-4": {"MichaelArnauts\\": "MichaelArnauts/"}
     },
-    "require": {}
+    "require": {
+        "phpexiftool/phpexiftool": "dev-master"
+    }
 }

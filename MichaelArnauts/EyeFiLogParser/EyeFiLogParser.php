@@ -8,6 +8,11 @@ class EyeFiLogParser {
     
     public function __construct($strLogFileName) {
         
+        // Check filename
+        if (!file_exists($strLogFileName)) {
+            throw new \Exception(sprintf("Log file for %s doesn't exist", $strLogFileName));
+        }
+
         /*
          * Load and parse the logfile
          */
