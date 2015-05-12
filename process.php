@@ -19,7 +19,7 @@ $config = require_once('config.php');
 
 // Check parameters
 if (!isset($argv[1])) {
-    echo sprintf("Syntax: process.php [FILENAME.JPG]\n");
+    echo sprintf("Syntax: process.php FILENAME.JPG [FILENAME.JPG.LOG]\n");
     exit(1);
 }
 
@@ -35,13 +35,13 @@ try {
     exit(1);
 }
 
-// Geocode
-if ($config['geocode']) {
+// Geocode when we have a logfile
+if (file_exists($argv[2]) && $config['geocode']) {
 
     try {
 
         // Load Log
-        $objEyeFiLogParser = new EyeFiLogParser($objFileMover->getPath() . '.log');
+        $objEyeFiLogParser = new EyeFiLogParser($argv[2]);
         $arrEyeFiAccessPoints = $objEyeFiLogParser->GetAccessPoints($objFileMover->getFilename());
 
         if ($arrEyeFiAccessPoints) {
@@ -63,6 +63,9 @@ if ($config['geocode']) {
             // Set EXIF data
             $objFileMover->setCoordinates($objLookup->latitude, $objLookup->longitude);
         }
+
+        // Remove log file
+        unlink($argv[2]);
         
     } catch (Exception $ex) {
         $logger->error(sprintf("Could not geocode: %s\n", $ex->getMessage()));
