@@ -25,7 +25,7 @@ if (!isset($argv[1])) {
 
 // Setup logging
 $logger = new Logger('eyefi-helper');
-//$logger->pushHandler(new SyslogHandler('eyefi-helper'));        
+$logger->pushHandler(new SyslogHandler('eyefi-helper'));        
 
 // Create FileMover
 try {
