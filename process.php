@@ -36,7 +36,7 @@ try {
 }
 
 // Geocode when we have a logfile
-if (file_exists($argv[2]) && $config['geocode']) {
+if (isset($argv[2]) && file_exists($argv[2]) && $config['geocode']) {
 
     try {
 
